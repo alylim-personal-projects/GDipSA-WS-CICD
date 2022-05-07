@@ -6,7 +6,7 @@ on:
       
 
 jobs:
-  docker:
+  build_and_notify:
     runs-on: ubuntu-latest
     steps:
       - name: Set up QEMU
@@ -25,13 +25,13 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           push: true
-          tags: whaleofatime54/randnum-workshop:${{ github.ref_name }}
+          tags: ${{ secrets.DOCKER_USERNAME }}/randnum-workshop:${{ github.ref_name }}
       
       - name: Slack Notification
         uses: tokorom/action-slack-incoming-webhook@main
         env:
           INCOMING_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
         with:
-          text: "${{ secrets.SLACK_STUFF }} \nRepo: ${{ github.repositoryUrl }} \nImageName: ${{ secrets.DOCKER_USERNAME }}/randnum-workshop:${{ github.ref_name }} \nImage url: https://hub.docker.com/repository/docker/${{ secrets.DOCKER_USERNAME }}/randnum-workshop"
+          text: "${{ secrets.SLACK_STUFF }} \nRepo: ${{ github.repositoryUrl }} \nImage Name: ${{ secrets.DOCKER_USERNAME }}/randnum-workshop:${{ github.ref_name }} \nImage url: https://hub.docker.com/repository/docker/${{ secrets.DOCKER_USERNAME }}/randnum-workshop"
       
       
