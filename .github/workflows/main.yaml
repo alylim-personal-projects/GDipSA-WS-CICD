@@ -31,11 +31,8 @@ jobs:
         id: slack
         uses: slackapi/slack-github-action@v1.18.0
         with:
-          text:
-            "${{ secrets.SLACK_STUFF }} 
-            /nRepo: ${{ github.repositoryUrl }}
-            /nImageName: ${{ secrets.DOCKER_USERNAME }}/randnum-workshop:${{ github.ref_name }}
-            /nImage url: https://hub.docker.com/repository/docker/${{ secrets.DOCKER_USERNAME }}/randnum-workshop"        
+          slack-message:
+            "${{ secrets.SLACK_STUFF }}\nRepo: ${{ github.repositoryUrl }}\nImageName: ${{ secrets.DOCKER_USERNAME }}/randnum-workshop:${{ github.ref_name }}\nImage url: https://hub.docker.com/repository/docker/${{ secrets.DOCKER_USERNAME }}/randnum-workshop"        
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
           SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
