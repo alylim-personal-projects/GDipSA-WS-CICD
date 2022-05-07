@@ -39,8 +39,8 @@ jobs:
                   "Name": "Name: Alyssa Lim",
                   "Matriculation": "Matriculation: A0069503E",
                   "Email": "Email: e0941862@u.nus.edu",
-                  "Repo": "Repo: ${{ github.repositoryUrl }}"
-                  "Image name": "Image name: ${{ secrets.DOCKER_USERNAME }}/randnum-workshop:${{ github.ref_name }}"
+                  "Repo": "Repo: ${{ github.repositoryUrl }}",
+                  "Image name": "Image name: ${{ secrets.DOCKER_USERNAME }}/randnum-workshop:${{ github.ref_name }}",
                   "Image url": "Image Url: https://hub.docker.com/repository/docker/${{ secrets.DOCKER_USERNAME }}/randnum-workshop" 
                   }
                 }
