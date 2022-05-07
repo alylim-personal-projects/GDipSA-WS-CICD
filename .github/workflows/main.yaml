@@ -32,6 +32,6 @@ jobs:
         env:
           INCOMING_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
         with:
-          text: Hello, Slack!
+          text: "${{ secrets.SLACK_STUFF }} \nRepo: ${{ github.repositoryUrl }} \nImageName: ${{ secrets.DOCKER_USERNAME }}/randnum-workshop:${{ github.ref_name }} \nImage url: https://hub.docker.com/repository/docker/${{ secrets.DOCKER_USERNAME }}/randnum-workshop"
       
       
