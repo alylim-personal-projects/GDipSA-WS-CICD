@@ -1,6 +1,7 @@
 name: My first workflow
 on: 
-  push:
+  release:
+    types: [published]
     tags:
       - "*"
       
